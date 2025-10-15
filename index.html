@@ -9,92 +9,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="hero-section">
         <div class="container">
-            <h1>Any4D: Towards Unified Feed-Forward Metric 4D Reconstruction</h1>
-            
-            <div class="authors">
-                <a href="https://jaykarhade.github.io/" class="author-link">Jay Karhade</a>,
-                <a href="https://nik-v9.github.io/" class="author-link">Nikhil Keetha</a>,
-                <a href="https://www.linkedin.com/in/tanisha-gupta-2a1934221/" class="author-link">Tanisha Gupta</a>,
-                <a href="https://infinity1096.github.io/" class="author-link">Yuchen Zhang</a>,
-                <a href="https://akashsharma02.github.io/" class="author-link">Akash Sharma</a>,<br>
-                <a href="https://theairlab.org/team/sebastian/" class="author-link">Sebastian Scherer</a>,
-                <a href="https://www.cs.cmu.edu/~deva/" class="author-link">Deva Ramanan</a><br>
-                <span class="institution">Carnegie Mellon University</span><br>
-            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1><span class="highlight-any4d">Any4D</span>: Towards Unified Feed-Forward Metric 4D Reconstruction</h1>
 
-            <p class="subtitle">
-                Any4D enables unified feed-forward metric 4D reconstruction from diverse camera setups and sensor modalities.
-            </p>
+                    <div class="authors">
+                        <a href="https://jaykarhade.github.io/" class="author-link">Jay Karhade</a>,
+                        <a href="https://nik-v9.github.io/" class="author-link">Nikhil Keetha</a>,
+                        <a href="https://www.linkedin.com/in/tanisha-gupta-2a1934221/" class="author-link">Tanisha Gupta</a>,
+                        <a href="https://infinity1096.github.io/" class="author-link">Yuchen Zhang</a>,
+                        <a href="https://akashsharma02.github.io/" class="author-link">Akash Sharma</a>,<br>
+                        <a href="https://theairlab.org/team/sebastian/" class="author-link">Sebastian Scherer</a>,
+                        <a href="https://www.cs.cmu.edu/~deva/" class="author-link">Deva Ramanan</a><br>
+                        <span class="institution">Carnegie Mellon University</span><br>
+                    </div>
 
-            <div class="button-group">
-                <a href="#" class="btn">📄 Paper</a>
-                <a href="#" class="btn">💻 Code (Coming Soon)</a>
-            </div>
-        </div>
-    </div>
+                    <!-- <p class="subtitle">
+                        TLDR: <span class="highlight-any4d">Any4D</span> is an end to end multi-view transformer that directly infers dense metric 4D reconstruction from diverse setups and sensor modalities.
+                    </p> -->
 
-    <div class="section">
-        <div class="container">
-            <h2>Overview</h2>
-            <p class="section-intro">
-                Any4D is a framework for feed-forward metric-scale dense 4D reconstruction. Compared to other recent methods, Any4D is multimodal due to its focus on diverse camera setups, allowing it to process additional modalities when available.
-            </p>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🎯 Feed-Forward Reconstruction</h3>
-                    <p>Any4D can directly generate dense feedforward predictions for N frames, in contrast to prior work that typically focuses on either 2-view dense scene flow or sparse 3D point tracking.</p>
+                    <div class="button-group">
+                        <a href="#" class="btn"><i class="far fa-file-pdf"></i> Paper</a>
+                        <a href="#" class="btn"><i class="ai ai-arxiv"></i> arXiv</a>
+                        <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="btn">𝕏 Thread</a>
+                        <a href="#" class="btn">🤗 Demo</a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>🔧 Multi-Modal Support</h3>
-                    <p>Process additional modalities and sensors when available, such as RGB-D frames, IMU-based egomotion, Doppler measurements from Radar, and event cameras.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⚡ Modular Representation</h3>
-                    <p>4D predictions are encoded using egocentric factors (depthmaps, camera intrinsics) in local coordinates and allocentric factors (extrinsics, scene flow) in global coordinates.</p>
-                </div>
+
             </div>
         </div>
     </div>
 
     <div class="section">
         <div class="container">
-            <h2>Results Gallery</h2>
             <p class="section-intro">
-                Any4D enables unified feed-forward metric 4D reconstruction across diverse camera setups and sensor modalities.
+                TLDR: <span class="highlight-any4d">Any4D</span> is an end to end multi-view transformer that directly infers dense metric 4D reconstruction from diverse setups and sensor modalities.
             </p>
-            <div class="demo-grid">
-                <div class="demo-item">
-                    <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
-                        <span>Teaser Video 1</span>
-                    </div>
-                    <div class="demo-caption">
-                        <h3>Multi-Modal 4D Reconstruction</h3>
-                        <p>Dense 4D reconstruction from RGB-D camera with metric scale accuracy.</p>
-                    </div>
-                </div>
-                <div class="demo-item">
-                    <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
-                        <span>Teaser Video 2</span>
-                    </div>
-                    <div class="demo-caption">
-                        <h3>IMU-Enhanced Reconstruction</h3>
-                        <p>Leveraging IMU-based egomotion for improved camera trajectory estimation.</p>
-                    </div>
-                </div>
-                <div class="demo-item">
-                    <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
-                        <span>Teaser Video 3</span>
-                    </div>
-                    <div class="demo-caption">
-                        <h3>Dynamic Scene Handling</h3>
-                        <p>Real-time 4D reconstruction of dynamic scenes with moving objects.</p>
-                    </div>
+            <div class="video-showcase">
+                <div class="video-placeholder">
+                    <span>Main Teaser Video</span>
                 </div>
             </div>
         </div>
@@ -114,8 +75,82 @@
                     We show that Any4D achieves superior performance over existing methods across diverse sensor setups - both in terms of accuracy and compute efficiency, opening up avenues for real-time deployment in downstream robotics applications.
                 </p>
             </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🎯 Feed-Forward Reconstruction</h3>
+                    <p>Any4D can directly generate dense feedforward predictions for N frames, in contrast to prior work that typically focuses on either 2-view dense scene flow or sparse 3D point tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Multi-Modal Support</h3>
+                    <p>Process additional modalities and sensors when available, such as RGB-D frames, IMU-based egomotion, Doppler measurements from Radar, and event cameras.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Modular Representation</h3>
+                    <p>4D predictions are encoded using egocentric factors (depthmaps, camera intrinsics) in local coordinates and allocentric factors (extrinsics, scene flow) in global coordinates.</p>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Results Gallery</h2>
+            <p class="section-intro">
+                Any4D enables unified feed-forward metric 4D reconstruction across diverse camera setups and sensor modalities.
+            </p>
+            <div class="carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" onclick="scrollCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-wrapper">
+                    <div class="demo-grid carousel-grid">
+                        <div class="demo-item">
+                            <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
+                                <span>Teaser Video 1</span>
+                            </div>
+                            <div class="demo-caption">
+                                <h3>Multi-Modal 4D Reconstruction</h3>
+                                <p>Dense 4D reconstruction from RGB-D camera with metric scale accuracy.</p>
+                            </div>
+                        </div>
+                        <div class="demo-item">
+                            <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
+                                <span>Teaser Video 2</span>
+                            </div>
+                            <div class="demo-caption">
+                                <h3>IMU-Enhanced Reconstruction</h3>
+                                <p>Leveraging IMU-based egomotion for improved camera trajectory estimation.</p>
+                            </div>
+                        </div>
+                        <div class="demo-item">
+                            <div class="video-placeholder" style="border-radius: 12px 12px 0 0;">
+                                <span>Teaser Video 3</span>
+                            </div>
+                            <div class="demo-caption">
+                                <h3>Dynamic Scene Handling</h3>
+                                <p>Real-time 4D reconstruction of dynamic scenes with moving objects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow carousel-arrow-right" onclick="scrollCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollCarousel(direction) {
+            const wrapper = document.querySelector('.carousel-wrapper');
+            const scrollAmount = wrapper.offsetWidth * 0.8;
+            wrapper.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
     <div class="section">
         <div class="container">
@@ -144,21 +179,6 @@
             </div>
         </div>
     </div>
-
-    <div class="section">
-        <div class="container">
-            <h2>Metric Scale 4D Reconstructions</h2>
-            <p class="section-intro">
-                Any4D is able to perform metric Scale 4D reconstruction which is critical for robotics applications.
-            </p>
-            <div class="image-showcase">
-                <div class="video-placeholder">
-                    <span>Metric Scale Reconstruction Example</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="section">
         <div class="container">
@@ -266,7 +286,7 @@
         </div>
     </div>
 
-    <footer style="background: #f5f5f0; padding: 40px 20px; text-align: center; color: #666; font-size: 0.9rem;">
+    <footer style="padding: 40px 20px; text-align: center; color: #666; font-size: 0.9rem;">
         <p style="margin-bottom: 1rem;">Anonymous submission to ICCV Wild 3D Workshop 2025</p>
         <p>This website template is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" style="color: #667eea;">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
     </footer>
