@@ -30,24 +30,19 @@
         </div>
     </div>
 
-    <!-- <div class="section">
+    <div class="section">
         <div class="container">
             <p class="section-intro">
                 TLDR: <span class="highlight-any4d">Any4D</span> is a multi-view transformer for <br>
                 • <strong>Feed-forward</strong> • <strong>Dense</strong> • <strong>Metric-scale</strong> • <strong>Multi-modal</strong> <br>
                 4D reconstruction of dynamic scenes from RGB videos and diverse setups.
             </p>
-            <div class="video-showcase">
-                <div class="video-placeholder">
-                    <span>Main Teaser Video</span>
-                </div>
-            </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="section">
         <div class="container">
-            <h2>Any4D Qualitative Visualizations</h2>
+            <h2>Diverse Any4D Visualizations</h2>
             <p class="section-intro">
                 Explore the 4D reconstruction results. Click on any thumbnail below to load its corresponding video.
             </p>
@@ -72,17 +67,17 @@
                 <div class="thumbnail-item active" data-video="assets/track_videos/any4d_tracks_stroller.webm">
                     <p class="thumbnail-label">Stroller</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_tennis.webm">
-                    <p class="thumbnail-label">Tennis</p>
-                </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_bigfoot.webm">
-                    <p class="thumbnail-label">Bigfoot</p>
-                </div>
                 <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_climbing.webm">
                     <p class="thumbnail-label">Bouldering</p>
                 </div>
                 <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_layup.webm">
                     <p class="thumbnail-label">Layup</p>
+                </div>
+                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_tennis.webm">
+                    <p class="thumbnail-label">Tennis</p>
+                </div>
+                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_bigfoot.webm">
+                    <p class="thumbnail-label">Bigfoot</p>
                 </div>
                 <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_humanoid.webm">
                     <p class="thumbnail-label">Humanoid Walking</p>
@@ -348,45 +343,45 @@
                 Any4D supports conditioning on diverse inputs including depth (ex - from RGB-D cameras), poses (ex- from IMUs), Doppler measurements (ex - from Radar) in addition to cameras. 
                 This allows the framework to adapt to various sensor setups and enhance reconstruction quality.
             </p>
+        </div>
         <div style="max-width: 1600px; margin: 2rem auto; padding: 0 2rem;">
                 <img src="assets/images/multi_modal.png" alt="Multi-Modal Input Support" style="width: 100%; height: auto; display: block;">
-            </div>
         </div>
     </div>
 
 
-    <!-- <div class="section">
+    <div class="section">
         <div class="container">
             <h2>Failure Cases</h2>
             <p class="section-intro">
-                Understanding limitations is crucial for future improvements. We identify key failure modes and discuss directions for addressing them.
+                Any4D fails on videos with large-baseline gaps, scene motion dominates the camera image space, or motion where the background has textureless or repititive surfaces. 
+                We believe that the availability of large-scale dense scene flow and 3D tracking datasets and integrating real-time optimization techniques is key to progress in this direction.
+
+
             </p>
             
             <div class="feature-grid" style="margin-top: 3rem;">
                 <div class="feature-card">
-                    <div class="video-placeholder" style="height: 200px; margin-bottom: 1rem;">
-                        <span>Texture Artifacts Video</span>
-                    </div>
-                    <h3>Texture Artifacts</h3>
-                    <p>Texture flickering can occur in scenes with high-frequency details at lower resolutions. Texture sticking may cause non-continuous jumps between frames in challenging scenarios.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="video-placeholder" style="height: 200px; margin-bottom: 1rem;">
-                        <span>Fixed Intrinsics Video</span>
-                    </div>
-                    <h3>Fixed Camera Intrinsics</h3>
-                    <p>Currently does not model camera intrinsics, preventing effects like dolly-zooms. Future work could explore RoPE-based positional encoding designs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="video-placeholder" style="height: 200px; margin-bottom: 1rem;">
-                        <span>Viewpoint Changes Video</span>
+                    <div style="margin-bottom: 1rem;">
+                        <img src="assets/images/large_viewpoint_change.png" alt="Large Viewpoint Changes" style="width: 100%; height: auto; display: block;">
                     </div>
                     <h3>Large Viewpoint Changes</h3>
-                    <p>Generated views can lack semantic plausibility with extreme viewpoint changes. Integrating priors from large-scale text-to-image models could address this.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="margin-bottom: 1rem;">
+                        <img src="assets/images/textureless_background.png" alt="Textureless Background" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <h3>Textureless Background</h3>
+                </div>
+                <div class="feature-card">
+                    <div style="margin-bottom: 1rem;">
+                        <img src="assets/images/dominating_scene_motion.png" alt="Dominating Scene Motion" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <h3>Dominating Scene Motion</h3>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
 </body>
