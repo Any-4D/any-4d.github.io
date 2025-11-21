@@ -44,8 +44,19 @@
         <div class="container">
             <h2>Diverse Any4D Visualizations</h2>
             <p class="section-intro">
-                Explore the 4D reconstruction results. Click on any thumbnail below to load its corresponding video.
+                Explore the 4D reconstruction results. Choose a visualization type and click on any thumbnail below to load its corresponding video.
             </p>
+            
+            <!-- Visualization Type Toggle Buttons -->
+            <div class="viz-toggle-container">
+                <button class="viz-toggle-btn active" data-viz-type="tracks">
+                   3D Point Tracks
+                </button>
+                <button class="viz-toggle-btn" data-viz-type="flow">
+                    Dense Scene Flow
+                </button>
+            </div>
+            
             <div class="video-viewer-container">
                 <video 
                     id="main-video"
@@ -64,28 +75,44 @@
             </div>
             
             <div class="sequence-thumbnails" id="thumbnail-container">
-                <div class="thumbnail-item active" data-video="assets/track_videos/any4d_tracks_stroller.webm">
+                <div class="thumbnail-item active" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_stroller.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_stroller.webm">
                     <p class="thumbnail-label">Stroller</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_climbing.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_climbing.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_climbing.webm">
                     <p class="thumbnail-label">Bouldering</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_layup.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_layup.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_layup.webm">
                     <p class="thumbnail-label">Layup</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_tennis.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_tennis.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_tennis.webm">
                     <p class="thumbnail-label">Tennis</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_bigfoot.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_bigfoot.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_bigfoot.webm">
                     <p class="thumbnail-label">Bigfoot</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_humanoid.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_humanoid.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_humanoid.webm">
                     <p class="thumbnail-label">Humanoid Walking</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_rollerblade.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_rollerblade.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_rollerblade.webm">
                     <p class="thumbnail-label">RollerBlade</p>
                 </div>
-                <div class="thumbnail-item" data-video="assets/track_videos/any4d_tracks_soapbox.webm">
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_soapbox.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_soapbox.webm">
                     <p class="thumbnail-label">Soapbox</p>
                 </div>
             </div>
@@ -97,38 +124,69 @@
             const thumbnails = document.querySelectorAll('#thumbnail-container .thumbnail-item');
             const mainVideo = document.getElementById('main-video');
             const loadingOverlay = document.getElementById('loading-overlay');
-
+            const vizToggleBtns = document.querySelectorAll('.viz-toggle-btn');
+            
+            // Track current visualization type
+            let currentVizType = 'tracks';
+            
+            // Function to load video based on current viz type and thumbnail
+            function loadVideo(thumbnail) {
+                const videoUrl = currentVizType === 'tracks' 
+                    ? thumbnail.getAttribute('data-video-tracks')
+                    : thumbnail.getAttribute('data-video-flow');
+                
+                if (loadingOverlay) {
+                    loadingOverlay.style.display = 'flex';
+                }
+                
+                if (videoUrl && mainVideo) {
+                    mainVideo.src = videoUrl;
+                    mainVideo.load();
+                    
+                    mainVideo.onloadeddata = function() {
+                        if (loadingOverlay) {
+                            loadingOverlay.style.display = 'none';
+                        }
+                        mainVideo.play();
+                    };
+                    
+                    mainVideo.onerror = function() {
+                        if (loadingOverlay) {
+                            loadingOverlay.style.display = 'none';
+                        }
+                        console.error('Error loading video:', videoUrl);
+                    };
+                }
+            }
+            
+            // Handle thumbnail clicks
             thumbnails.forEach(function(thumbnail) {
                 thumbnail.onclick = function() {
-                    const videoUrl = this.getAttribute('data-video');
-                    
                     thumbnails.forEach(function(t) {
                         t.classList.remove('active');
                     });
                     
                     this.classList.add('active');
+                    loadVideo(this);
+                };
+            });
+            
+            // Handle visualization type toggle
+            vizToggleBtns.forEach(function(btn) {
+                btn.onclick = function() {
+                    // Update button states
+                    vizToggleBtns.forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                    this.classList.add('active');
                     
-                    if (loadingOverlay) {
-                        loadingOverlay.style.display = 'flex';
-                    }
+                    // Update current viz type
+                    currentVizType = this.getAttribute('data-viz-type');
                     
-                    if (videoUrl && mainVideo) {
-                        mainVideo.src = videoUrl;
-                        mainVideo.load();
-                        
-                        mainVideo.onloadeddata = function() {
-                            if (loadingOverlay) {
-                                loadingOverlay.style.display = 'none';
-                            }
-                            mainVideo.play();
-                        };
-                        
-                        mainVideo.onerror = function() {
-                            if (loadingOverlay) {
-                                loadingOverlay.style.display = 'none';
-                            }
-                            console.error('Error loading video:', videoUrl);
-                        };
+                    // Reload video for currently selected thumbnail
+                    const activeThumb = document.querySelector('#thumbnail-container .thumbnail-item.active');
+                    if (activeThumb) {
+                        loadVideo(activeThumb);
                     }
                 };
             });
