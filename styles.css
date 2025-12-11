@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-/* body {
-    font-family: 'Courier New', 'Courier', monospace;
-    line-height: 1.4;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #f5e6d3 0%, #e8d4c8 50%, #d4e5f0 100%);
-    min-height: 100vh;
-} */
-
 body {
     font-family: 'Courier New', 'Courier', monospace;
     line-height: 1.4;
@@ -55,6 +47,51 @@ h1 {
     font-family: 'Courier New', 'Courier', monospace;
     font-size: 1.25rem;
     color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.authors a,
+.author-link {
+    color: #667eea;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-bottom: none;
+    background-image: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    text-decoration-color: transparent;
+}
+
+.authors a:hover,
+.author-link:hover {
+    color: #764ba2;
+    text-decoration: none;
+    text-decoration-line: none;
+    transform: translateY(-1px);
+}
+
+.authors a:link,
+.authors a:visited,
+.authors a:active {
+    text-decoration: none;
+}
+
+.author-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.author-link:hover::after {
+    width: 100%;
 }
 
 .author-name {
@@ -527,14 +564,6 @@ footer {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
-
-/* .sequence-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-} */
 
 .sequence-thumbnails {
     display: grid;

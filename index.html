@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Any4D: Unified Feed-Forward Metric 4D Reconstruction from diverse camera setups and sensor modalities.">
+    <meta name="description" content="Any4D">
     <meta name="keywords" content="Any4D, 4D Reconstruction, Feed-Forward, Multimodal, Scene Flow">
     <title>Any4D: Unified Feed-Forward Metric 4D Reconstruction</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +21,23 @@
                     <h1><span class="highlight-any4d">Any4D</span>: Unified Feed-Forward Metric 4D Reconstruction</h1>
 
                     <div class="authors">
-                        <h2><span class="institution">PaperID: 17783</span><br></h2>
+                        <a href="https://jaykarhade.github.io/" class="author-link">Jay Karhade</a>,
+                        <a href="https://nik-v9.github.io/" class="author-link">Nikhil Keetha</a>,
+                        <a href="https://www.linkedin.com/in/tanisha-gupta-2a1934221/" class="author-link">Tanisha Gupta</a>,
+                        <a href="https://infinity1096.github.io/" class="author-link">Yuchen Zhang</a>,<br>
+                        <a href="https://akashsharma02.github.io/" class="author-link">Akash Sharma</a>,
+                        <a href="https://theairlab.org/team/sebastian/" class="author-link">Sebastian Scherer</a>,
+                        <a href="https://www.cs.cmu.edu/~deva/" class="author-link">Deva Ramanan</a><br>
+                        <span class="institution">Carnegie Mellon University</span><br>
                     </div>
 
+                    <div class="button-group">
+                        <a href="#" class="btn"><i class="far fa-file-pdf"></i> Paper</a>
+                        <a href="#" class="btn"><i class="ai ai-arxiv"></i> arXiv</a>
+                        <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="btn">𝕏 Thread</a>
+                        <a href="#" class="btn">🤗 Demo</a>
+                    </div>
                 </div>
 
             </div>
@@ -37,14 +51,20 @@
                 • <strong>Feed-forward</strong> • <strong>Dense</strong> • <strong>Metric-scale</strong> • <strong>Multi-modal</strong> <br>
                 4D reconstruction of dynamic scenes from RGB videos and diverse setups.
             </p>
+            <div class="video-showcase">
+                <div class="video-placeholder">
+                    <span>Main Teaser Video</span>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- END OF TOP SECTION FROM SECOND VERSION -->
 
     <div class="section">
         <div class="container">
             <h2>Diverse Any4D Visualizations</h2>
             <p class="section-intro">
-                Explore the 4D reconstruction results. Choose a visualization type and click on any thumbnail below to load its corresponding video.
+                Explore the 4D reconstruction results. Choose a visualization type and click on any thumbnail below to load its corresponding content.
             </p>
             
             <!-- Visualization Type Toggle Buttons -->
@@ -55,64 +75,90 @@
                 <button class="viz-toggle-btn" data-viz-type="flow">
                     Dense Scene Flow
                 </button>
+                <button class="viz-toggle-btn" data-viz-type="rerun">
+                    Interactive Rerun
+                </button>
             </div>
             
-            <div class="video-viewer-container">
+            <div class="video-viewer-container" id="main-viewer-container">
+                <!-- Video player -->
                 <video 
                     id="main-video"
                     class="main-video"
                     controls
                     autoplay
                     loop
-                    muted>
+                    muted
+                    style="display: block;">
                     <source src="assets/track_videos/any4d_tracks_stroller.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
+                
+                <!-- Rerun iframe container (hidden by default) -->
+                <div id="rerun-container" style="display: none; width: 100%; height: 100%;">
+                    <iframe 
+                        id="rerun-viewer"
+                        class="main-video"
+                        style="border: none; width: 100%; height: 100%;"
+                        src="https://app.rerun.io/version/0.24.1/index.html?url=https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/stroller_combined.rrd"
+                        title="Rerun 3D Viewer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
                 <div class="loading-overlay" id="loading-overlay">
                     <div class="loading-spinner"></div>
-                    <p>Loading video...</p>
+                    <p>Loading...</p>
                 </div>
             </div>
             
             <div class="sequence-thumbnails" id="thumbnail-container">
                 <div class="thumbnail-item active" 
                      data-video-tracks="assets/track_videos/any4d_tracks_stroller.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_stroller.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_stroller.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/stroller_combined.rrd">
                     <p class="thumbnail-label">Stroller</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_climbing.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_climbing.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_climbing.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/tennis_combined.rrd">
                     <p class="thumbnail-label">Bouldering</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_layup.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_layup.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_layup.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/hockey_combined.rrd">
                     <p class="thumbnail-label">Layup</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_tennis.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_tennis.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_tennis.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/human_rhino_combined.rrd">
                     <p class="thumbnail-label">Tennis</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_bigfoot.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_bigfoot.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_bigfoot.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/bigfoot_combined.rrd">
                     <p class="thumbnail-label">Bigfoot</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_humanoid.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_humanoid.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_humanoid.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/humanoid_walking_backward_combined.rrd">
                     <p class="thumbnail-label">Humanoid Walking</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_rollerblade.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_rollerblade.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_rollerblade.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/quadruped_obstacle_combined.rrd">
                     <p class="thumbnail-label">RollerBlade</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_soapbox.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_soapbox.webm">
+                     data-video-flow="assets/dense_videos/any4d_dense_soapbox.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/soapbox_combined.rrd">
                     <p class="thumbnail-label">Soapbox</p>
                 </div>
             </div>
@@ -123,39 +169,85 @@
         (function() {
             const thumbnails = document.querySelectorAll('#thumbnail-container .thumbnail-item');
             const mainVideo = document.getElementById('main-video');
+            const rerunContainer = document.getElementById('rerun-container');
+            const viewerContainer = document.getElementById('main-viewer-container');
             const loadingOverlay = document.getElementById('loading-overlay');
             const vizToggleBtns = document.querySelectorAll('.viz-toggle-btn');
             
-            // Track current visualization type
             let currentVizType = 'tracks';
+            let currentRerunIframe = document.getElementById('rerun-viewer');
             
-            // Function to load video based on current viz type and thumbnail
-            function loadVideo(thumbnail) {
-                const videoUrl = currentVizType === 'tracks' 
-                    ? thumbnail.getAttribute('data-video-tracks')
-                    : thumbnail.getAttribute('data-video-flow');
-                
+            // Function to load content based on current viz type and thumbnail
+            function loadContent(thumbnail) {
+                // Show loading overlay
                 if (loadingOverlay) {
                     loadingOverlay.style.display = 'flex';
                 }
                 
-                if (videoUrl && mainVideo) {
-                    mainVideo.src = videoUrl;
-                    mainVideo.load();
+                if (currentVizType === 'rerun') {
+                    // Hide video, show rerun container
+                    mainVideo.style.display = 'none';
+                    rerunContainer.style.display = 'block';
                     
-                    mainVideo.onloadeddata = function() {
-                        if (loadingOverlay) {
-                            loadingOverlay.style.display = 'none';
+                    const rrdUrl = thumbnail.getAttribute('data-rerun-url');
+                    if (rrdUrl) {
+                        // Remove old iframe and create new one for clean reload
+                        if (currentRerunIframe) {
+                            currentRerunIframe.remove();
                         }
-                        mainVideo.play();
-                    };
+                        
+                        currentRerunIframe = document.createElement('iframe');
+                        currentRerunIframe.id = 'rerun-viewer';
+                        currentRerunIframe.className = 'main-video';
+                        currentRerunIframe.title = 'Rerun 3D Viewer';
+                        currentRerunIframe.allowFullscreen = true;
+                        currentRerunIframe.style.border = 'none';
+                        currentRerunIframe.style.width = '100%';
+                        currentRerunIframe.style.height = '100%';
+                        
+                        // Properly encode only the RRD URL parameter
+                        const encodedRrdUrl = encodeURIComponent(rrdUrl);
+                        const rerunViewerUrl = 'https://app.rerun.io/version/0.24.1/index.html?url=' + encodedRrdUrl;
+                        
+                        console.log('Loading RRD from:', rrdUrl);
+                        currentRerunIframe.src = rerunViewerUrl;
+                        
+                        rerunContainer.appendChild(currentRerunIframe);
+                        
+                        // Hide loading after delay
+                        setTimeout(function() {
+                            if (loadingOverlay) {
+                                loadingOverlay.style.display = 'none';
+                            }
+                        }, 3000);
+                    }
+                } else {
+                    // Hide rerun container, show video
+                    rerunContainer.style.display = 'none';
+                    mainVideo.style.display = 'block';
                     
-                    mainVideo.onerror = function() {
-                        if (loadingOverlay) {
-                            loadingOverlay.style.display = 'none';
-                        }
-                        console.error('Error loading video:', videoUrl);
-                    };
+                    const videoUrl = currentVizType === 'tracks' 
+                        ? thumbnail.getAttribute('data-video-tracks')
+                        : thumbnail.getAttribute('data-video-flow');
+                    
+                    if (videoUrl && mainVideo) {
+                        mainVideo.src = videoUrl;
+                        mainVideo.load();
+                        
+                        mainVideo.onloadeddata = function() {
+                            if (loadingOverlay) {
+                                loadingOverlay.style.display = 'none';
+                            }
+                            mainVideo.play();
+                        };
+                        
+                        mainVideo.onerror = function() {
+                            if (loadingOverlay) {
+                                loadingOverlay.style.display = 'none';
+                            }
+                            console.error('Error loading video:', videoUrl);
+                        };
+                    }
                 }
             }
             
@@ -167,7 +259,7 @@
                     });
                     
                     this.classList.add('active');
-                    loadVideo(this);
+                    loadContent(this);
                 };
             });
             
@@ -183,10 +275,10 @@
                     // Update current viz type
                     currentVizType = this.getAttribute('data-viz-type');
                     
-                    // Reload video for currently selected thumbnail
+                    // Reload content for currently selected thumbnail
                     const activeThumb = document.querySelector('#thumbnail-container .thumbnail-item.active');
                     if (activeThumb) {
-                        loadVideo(activeThumb);
+                        loadContent(activeThumb);
                     }
                 };
             });
@@ -412,8 +504,8 @@
         <div class="container">
             <h2>Failure Cases</h2>
             <p class="section-intro">
-                Videos with large-baseline gaps, scene motion dominates the camera image space, or motion where the background has textureless or repititive surfaces are common failure modes for Any4D. 
-                We believe that the availability of large-scale dense scene flow and 3D tracking datasets and integrating real-time optimization is key to overcoming these limitations.
+                Any4D fails on videos with large-baseline gaps, scene motion dominates the camera image space, or motion where the background has textureless or repititive surfaces. 
+                We believe that the availability of large-scale dense scene flow and 3D tracking datasets and integrating real-time optimization techniques is key to progress in this direction.
 
 
             </p>
