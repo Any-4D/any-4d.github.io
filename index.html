@@ -97,7 +97,7 @@
                     loop
                     muted
                     style="display: block;">
-                    <source src="assets/track_videos/any4d_tracks_stroller.webm" type="video/webm">
+                    <source src="assets/track_videos/any4d_tracks_climbing.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
                 
@@ -107,7 +107,7 @@
                         id="rerun-viewer"
                         class="main-video"
                         style="border: none; width: 100%; height: 100%;"
-                        src="https://app.rerun.io/version/0.24.1/index.html?url=https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/stroller_combined.rrd"
+                        src="https://app.rerun.io/version/0.24.1/index.html?url=https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/climbing_combined.rrd"
                         title="Rerun 3D Viewer"
                         allowfullscreen>
                     </iframe>
@@ -121,12 +121,6 @@
             
             <div class="sequence-thumbnails" id="thumbnail-container">
                 <div class="thumbnail-item active" 
-                     data-video-tracks="assets/track_videos/any4d_tracks_stroller.webm"
-                     data-video-flow="assets/dense_videos/any4d_dense_stroller.webm"
-                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/stroller_combined.rrd">
-                    <p class="thumbnail-label">Stroller</p>
-                </div>
-                <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_climbing.webm"
                      data-video-flow="assets/dense_videos/any4d_dense_climbing.webm"
                      data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/climbing_combined.rrd">
@@ -143,6 +137,12 @@
                      data-video-flow="assets/dense_videos/any4d_dense_tennis.webm"
                      data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/tennis_combined.rrd">
                     <p class="thumbnail-label">Tennis</p>
+                </div>
+                <div class="thumbnail-item" 
+                     data-video-tracks="assets/track_videos/any4d_tracks_stroller.webm"
+                     data-video-flow="assets/dense_videos/any4d_dense_stroller.webm"
+                     data-rerun-url="https://huggingface.co/datasets/JayKarhade/Any4D_rerun_recordings/resolve/main/stroller_combined.rrd">
+                    <p class="thumbnail-label">Stroller</p>
                 </div>
                 <div class="thumbnail-item" 
                      data-video-tracks="assets/track_videos/any4d_tracks_bigfoot.webm"
@@ -327,7 +327,7 @@
                         autoplay
                         loop
                         muted>
-                        <source src="assets/baseline_comparisons/any4d_car_back.webm" type="video/webm">
+                        <source src="assets/baseline_comparisons/any4d_lady_running.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
                     <div class="loading-overlay" id="loading-overlay-comparison-any4d">
@@ -350,7 +350,7 @@
                         autoplay
                         loop
                         muted>
-                        <source src="assets/baseline_comparisons/spatrackv2_car_back.webm" type="video/webm">
+                        <source src="assets/baseline_comparisons/spatrackv2_lady_running.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
                     <div class="loading-overlay" id="loading-overlay-comparison-baseline1">
@@ -371,7 +371,7 @@
                         autoplay
                         loop
                         muted>
-                        <source src="assets/baseline_comparisons/st4rtrack_car_back.webm" type="video/webm">
+                        <source src="assets/baseline_comparisons/st4rtrack_lady_running.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
                     <div class="loading-overlay" id="loading-overlay-comparison-baseline2">
@@ -383,16 +383,16 @@
         </div>
         <div class="sequence-thumbnails" style="margin: 2rem auto; justify-content: center; max-width: 800px; grid-template-columns: repeat(4, 1fr);">
             <div class="thumbnail-item active comparison-thumbnail" 
-                 data-any4d="assets/baseline_comparisons/any4d_car_back.webm"
-                 data-baseline1="assets/baseline_comparisons/spatrackv2_car_back.webm"
-                 data-baseline2="assets/baseline_comparisons/st4rtrack_car_back.webm">
-                <p class="thumbnail-label">Car Reversing</p>
-            </div>
-            <div class="thumbnail-item comparison-thumbnail" 
                  data-any4d="assets/baseline_comparisons/any4d_lady_running.webm"
                  data-baseline1="assets/baseline_comparisons/spatrackv2_lady_running.webm"
                  data-baseline2="assets/baseline_comparisons/st4rtrack_lady_running.webm">
                 <p class="thumbnail-label">Lady Running</p>
+            </div>
+            <div class="thumbnail-item comparison-thumbnail" 
+                 data-any4d="assets/baseline_comparisons/any4d_car_back.webm"
+                 data-baseline1="assets/baseline_comparisons/spatrackv2_car_back.webm"
+                 data-baseline2="assets/baseline_comparisons/st4rtrack_car_back.webm">
+                <p class="thumbnail-label">Car Reversing</p>
             </div>
             <div class="thumbnail-item comparison-thumbnail" 
                  data-any4d="assets/baseline_comparisons/any4d_stroller.webm"
